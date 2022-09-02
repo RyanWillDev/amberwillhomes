@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{ $style := resources.Get "sass/main.scss" | resources.ToCSS (dict "outputStyle" "compressed") | resources.Minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $style.Permalink }}">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <main>
+    <div class="hero-banner">
+        {{ $hero := resources.Get "images/hero.jpg" }}
+        {{ $hero := $hero.Resize "1600x q60" }}
+        <img class="hero-banner-image" src="{{$hero.RelPermalink}}" alt="Image of the interior of a kitchen">
+<span class="photo-credit">Photo by <a href="https://unsplash.com/@rarchitecture_melbourne?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">R ARCHITECTURE</a></a>
+  </span>
+      <div class="headshot-container">
+        {{ $headshot := resources.Get "images/headshot.jpg" }}
+        {{ $headshot := $headshot.Resize "400x" }}
+        <img class="headshot-container-image" width="{{$headshot.Width}}" height="{{$headshot.Height}}" src="{{$headshot.RelPermalink}}" alt="Headshot of Amber Will">
+      <ul class="icons">
+        <li class="icon">
+          <a href="https://www.facebook.com/amberwillhomes" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+          </svg>
+          </a>
+        </li>
+        <li class="icon">
+          <a href="mailto:info@amberwill.homes">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+              <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
+      </div>
+    </div>
+  </main>
+  <section class="footer">
+    <div class="lee-realty">
+      {{ $lee_realty_logo := resources.Get "images/lee-realty-logo.png" }}
+      {{ $lee_realty_logo := $lee_realty_logo.Resize "150x" }}
+      <img src="{{$lee_realty_logo.RelPermalink}}" alt="Logo for Lee Realty">
+      <div class="info">
+        <span><a href="tel:615-446-2006">615.446.2006</a><span>
+        <span> 216 E College St Suite D-2<span>
+        <span>Dickson, TN 37055 <span>
+      </div>
+    </div>
+    <div class="junk">
+      <p class="disclaimer">Information deemed reliable but not guaranteed.</p>
+      <div class="logos">
+        {{ $mls_logo := resources.Get "images/mls-logo.jpg" }}
+        {{ $mls_logo := $mls_logo.Resize "50x" }}
+        <img src="{{$mls_logo.RelPermalink}}" alt="Logo Multiple Listing Service">
+        {{ $eh_logo := resources.Get "images/equal-housing-logo.jpg" }}
+        {{ $eh_logo := $eh_logo.Resize "15x" }}
+        <img src="{{$eh_logo.RelPermalink}}" alt="Logo Equal Housing Opportunity">
+      </div>
+    </div>
+  </section>
+</body>
+</html>
