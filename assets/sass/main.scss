@@ -15,7 +15,13 @@ ol {
 }
 
 a {
-  color: black;
+  color: $primary-color;
+  &:visited,
+  &:active,
+  &:link,
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 body {
@@ -98,6 +104,7 @@ body {
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
+  margin-bottom: 3rem;
 
   .icon {
     height: 20px;
@@ -123,6 +130,75 @@ body {
     a {
       padding: 5px;
     }
+  }
+}
+
+.properties {
+  margin: 0 10% 5rem;
+
+  .listings {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    @include breakpoint(1080px) {
+      justify-content: space-between;
+    }
+    .listing {
+      border-radius: 10%;
+      box-shadow: 0 4px 6px 0 hsla(300, 75, 87, 0.3),
+        0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 2rem;
+      max-width: 500px;
+      padding: 1rem;
+
+      @include breakpoint(800px) {
+        border-radius: 2%;
+        max-width: 400px;
+        flex-wrap: no-wrap;
+      }
+
+      img {
+        border-radius: 5%;
+        margin-bottom: 0.25rem;
+        max-width: 300px;
+        @include breakpoint(525px) {
+          margin-right: 0.75rem;
+        }
+      }
+
+      &-info {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 0.25rem;
+        max-width: 300px;
+        width: 100%;
+
+        li {
+          display: block;
+          margin: 0 auto 0.25rem;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.btn {
+  color: $primary-color;
+  border: solid 3px $primary-color;
+  border-radius: 10%;
+  height: 20px;
+  margin: 0 auto;
+  padding: 0.5rem;
+  width: 70px;
+
+  &:hover,
+  &:focus {
+    background-color: $primary-color;
+    color: #fff;
   }
 }
 

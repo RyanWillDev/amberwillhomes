@@ -39,6 +39,113 @@
       </div>
     </div>
   </main>
+  <!-- Listings
+    CSV is in the following order:
+    1. personal
+    2. type
+    3. address
+    4. image_url
+    5. sqft
+    6. acerage
+    7. price
+    8. room_count
+    9. bath_count
+  -->
+  <section class="properties">
+    <h2>My Listings</h2>
+    {{$listings := getCSV "," "listings.csv" }}
+    {{$final_listings := newScratch}}
+
+    {{range after 1 $listings}}
+      {{if eq (index . 0) "TRUE"}}
+        {{$final_listings.Add "my_listings" (slice .)}}
+      {{else}}
+        {{$final_listings.Add "lee_realty_listings" (slice .)}}
+      {{end}}
+    {{end}}
+
+    {{if false}}
+      <ul class="listings">
+        {{range ($final_listings.Get "my_listings") }}
+          {{$personal := index . 0}}
+          {{$type := index . 1}}
+          {{$address := index . 2}}
+          {{$image_url := index . 3}}
+          {{$external_link := index . 4}}
+          {{$sqft := index . 5}}
+          {{$acerage := index . 6}}
+          {{$price := index . 7}}
+          {{$room_count := index . 8}}
+          {{$bath_count := index . 9}}
+          <li class="listing">
+            {{$img := resources.GetRemote $image_url}}
+            {{$img := $img.Resize "500x q60"}}
+            <img src="{{$img.RelPermalink}}" alt="Property Image">
+            <div class="listing-info">
+              <ul>
+                <li>{{$address}}</li>
+                <li>{{$price}}</li>
+                <li>{{$sqft}} sqft</li>
+                <li>{{$acerage}} acres</li>
+
+                {{if eq $type "residential"}}
+                <li>{{$room_count}}</li>
+                <li>$bath_count</li>
+                {{end}}
+              </ul>
+              <a class="btn" href="{{$external_link}}">More Info</a>
+            </div>
+          </li>
+        {{end}}
+      </ul>
+    {{else}}
+      <p>I don't have any current listings but be sure to check out the listings
+      from Lee Realty below. <a href="mailto:info@amberwill.homes">Contact me</a> if you want to take look at anything!</p>
+    {{end}}
+    
+  </section>
+
+  <section class="properties">
+    <h2>Lee Realty Listings</h2>
+    {{if $final_listings.Get "lee_realty_listings"}}
+      <ul class="listings">
+        {{range ($final_listings.Get "lee_realty_listings") }}
+          {{$personal := index . 0}}
+          {{$type := index . 1}}
+          {{$address := index . 2}}
+          {{$image_url := index . 3}}
+          {{$external_link := index . 4}}
+          {{$sqft := index . 5}}
+          {{$acerage := index . 6}}
+          {{$price := index . 7}}
+          {{$room_count := index . 8}}
+          {{$bath_count := index . 9}}
+          <li class="listing">
+            {{$img := resources.GetRemote $image_url}}
+            {{$img := $img.Resize "500x q60"}}
+            <img src="{{$img.RelPermalink}}" alt="Property Image">
+            <div class="listing-info">
+              <ul>
+                <li>{{$address}}</li>
+                <li>{{$price}}</li>
+                <li>{{$sqft}} sqft</li>
+                <li>{{$acerage}} acres</li>
+
+                {{if eq $type "residential"}}
+                <li>{{$room_count}}</li>
+                <li>$bath_count</li>
+                {{end}}
+              </ul>
+              <a class="btn" href="{{$external_link}}">More Info</a>
+            </div>
+          </li>
+        {{end}}
+      </ul>
+    {{else}}
+      <h1>no listings</h1>
+    {{end}}
+  </section>
+
   <section class="footer">
     <div class="lee-realty">
       {{ $lee_realty_logo := resources.Get "images/lee-realty-logo.png" }}
