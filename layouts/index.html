@@ -53,7 +53,7 @@
   -->
   <section class="properties">
     <h2>My Listings</h2>
-    {{$listings := getCSV "," "listings.csv" }}
+    {{$listings := getCSV "," "./listings.csv" }}
     {{$final_listings := newScratch}}
 
     {{range after 1 $listings}}
@@ -64,7 +64,7 @@
       {{end}}
     {{end}}
 
-    {{if false}}
+    {{if $final_listings.Get "my_listings"}}
       <ul class="listings">
         {{range ($final_listings.Get "my_listings") }}
           {{$personal := index . 0}}
