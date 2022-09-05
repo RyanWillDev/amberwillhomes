@@ -53,7 +53,7 @@
   -->
   <section class="properties">
     <h2>My Listings</h2>
-    {{$listings := getCSV "," "./listings.csv" }}
+    {{$listings := getCSV "," "listings.csv" }}
     {{$final_listings := newScratch}}
 
     {{range after 1 $listings}}
@@ -102,7 +102,7 @@
       <p>I don't have any current listings but be sure to check out the listings
       from Lee Realty below. <a href="mailto:info@amberwill.homes">Contact me</a> if you want to take look at anything!</p>
     {{end}}
-    
+
   </section>
 
   <section class="properties">
@@ -110,7 +110,6 @@
     {{if $final_listings.Get "lee_realty_listings"}}
       <ul class="listings">
         {{range ($final_listings.Get "lee_realty_listings") }}
-          {{$personal := index . 0}}
           {{$type := index . 1}}
           {{$address := index . 2}}
           {{$image_url := index . 3}}
