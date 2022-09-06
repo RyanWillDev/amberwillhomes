@@ -85,12 +85,14 @@
               <ul>
                 <li>{{$address}}</li>
                 <li>{{$price}}</li>
-                <li>{{$sqft}} sqft</li>
+                {{if ne $type "land"}}
+                  <li>{{$sqft}} sqft</li>
+                {{end}}
                 <li>{{$acerage}} acres</li>
 
                 {{if eq $type "residential"}}
-                <li>{{$room_count}}</li>
-                <li>$bath_count</li>
+                <li>{{$room_count}} bedrooms</li>
+                <li>{{$bath_count}} baths</li>
                 {{end}}
               </ul>
               <a class="btn" href="{{$external_link}}">More Info</a>
@@ -127,12 +129,14 @@
               <ul>
                 <li>{{$address}}</li>
                 <li>{{$price}}</li>
-                <li>{{$sqft}} sqft</li>
+                {{if ne $type "land"}}
+                  <li>{{$sqft}} sqft</li>
+                {{end}}
                 <li>{{$acerage}} acres</li>
 
                 {{if eq $type "residential"}}
-                <li>{{$room_count}}</li>
-                <li>$bath_count</li>
+                <li>{{$room_count}} bedrooms</li>
+                <li>{{$bath_count}} bath</li>
                 {{end}}
               </ul>
               <a class="btn" href="{{$external_link}}">More Info</a>
