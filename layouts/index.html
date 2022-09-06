@@ -78,6 +78,7 @@
           {{$room_count := index . 8}}
           {{$bath_count := index . 9}}
           <li class="listing">
+            <a href="{{$external_link}}">
             {{$img := resources.GetRemote $image_url}}
             {{$img := $img.Resize "500x q60"}}
             <img src="{{$img.RelPermalink}}" alt="Property Image">
@@ -95,14 +96,14 @@
                 <li>{{$bath_count}} baths</li>
                 {{end}}
               </ul>
-              <a class="btn" href="{{$external_link}}">More Info</a>
             </div>
+           </a>
           </li>
         {{end}}
       </ul>
     {{else}}
-      <p>I don't have any current listings but be sure to check out the listings
-      from Lee Realty below. <a href="mailto:info@amberwill.homes">Contact me</a> if you want to take look at anything!</p>
+      <p>I don't have any current listings, but be sure to check out the listings from Lee Realty below.</p>
+      <p><a class="link" href="mailto:info@amberwill.homes">Contact me</a> for more info, or to schedule a showing!</p>
     {{end}}
 
   </section>
@@ -122,6 +123,7 @@
           {{$room_count := index . 8}}
           {{$bath_count := index . 9}}
           <li class="listing">
+            <a href="{{$external_link}}">
             {{$img := resources.GetRemote $image_url}}
             {{$img := $img.Resize "500x q60"}}
             <img src="{{$img.RelPermalink}}" alt="Property Image">
@@ -139,8 +141,8 @@
                 <li>{{$bath_count}} bath</li>
                 {{end}}
               </ul>
-              <a class="btn" href="{{$external_link}}">More Info</a>
             </div>
+            </a>
           </li>
         {{end}}
       </ul>

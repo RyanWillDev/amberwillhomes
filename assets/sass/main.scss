@@ -15,6 +15,16 @@ ol {
 }
 
 a {
+  &:visited,
+  &:active,
+  &:link,
+  &:hover {
+    text-decoration: none;
+    color: #000;
+  }
+}
+
+.link {
   color: $primary-color;
   &:visited,
   &:active,
@@ -159,7 +169,7 @@ body {
       @include breakpoint(800px) {
         border-radius: 2%;
         max-width: 400px;
-        flex-wrap: no-wrap;
+        flex-wrap: nowrap;
       }
 
       img {
@@ -185,20 +195,6 @@ body {
         }
       }
     }
-  }
-}
-
-.btn {
-  color: $primary-color;
-  border: solid 3px $primary-color;
-  border-radius: 10%;
-  margin: 0 auto;
-  padding: 0.5rem;
-
-  &:hover,
-  &:focus {
-    background-color: $primary-color;
-    color: #fff;
   }
 }
 
