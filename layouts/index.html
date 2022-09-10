@@ -117,20 +117,23 @@
           {{$address := index . 2}}
           {{$image_url := index . 3}}
           {{$external_link := index . 4}}
-          {{$sqft := index . 5}}
-          {{$acerage := index . 6}}
-          {{$price := index . 7}}
-          {{$room_count := index . 8}}
-          {{$bath_count := index . 9}}
+          {{$price := index . 5}}
+          {{$room_count := index . 6}}
+          {{$bath_count := index . 7}}
+          {{$acerage := index . 8}}
+          {{$sqft := index . 9}}
+          {{$listing_agent_name := index . 10}}
+          {{$listing_agent_broker := index . 11}}
+          {{$listing_agent_phone := index . 12}}
           <li class="listing">
             <a href="{{$external_link}}">
             {{$img := resources.GetRemote $image_url}}
             {{$img := $img.Resize "500x q60"}}
+            <h3>{{$price}}</h3>
             <img src="{{$img.RelPermalink}}" alt="Property Image">
             <div class="listing-info">
+              <p>{{$address}}</p>
               <ul>
-                <li>{{$address}}</li>
-                <li>{{$price}}</li>
                 {{if ne $type "land"}}
                   <li>{{$sqft}} sqft</li>
                 {{end}}
@@ -140,6 +143,11 @@
                 <li>{{$room_count}} bedrooms</li>
                 <li>{{$bath_count}} bath</li>
                 {{end}}
+              </ul>
+              <ul class="listing-agent-info">
+                <li>Listing courtesy of {{$listing_agent_name}}</li>
+                <li>{{$listing_agent_broker}}</li>
+                <li>{{$listing_agent_phone}}</li>
               </ul>
             </div>
             </a>
@@ -164,6 +172,8 @@
     </div>
     <div class="junk">
       <p class="disclaimer">Information deemed reliable but not guaranteed.</p>
+      <p class="disclaimer">Buyers should independently verify all information
+      prior to submitting any offer to purchase.</p>
       <div class="logos">
         {{ $mls_logo := resources.Get "images/mls-logo.jpg" }}
         {{ $mls_logo := $mls_logo.Resize "50x" }}
