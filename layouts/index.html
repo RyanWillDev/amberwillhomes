@@ -53,7 +53,7 @@
   -->
   <section class="properties">
     <h2>My Listings</h2>
-    {{$listings := getCSV "," "listings.csv" }}
+    {{$listings := getCSV "," "https://docs.google.com/spreadsheets/d/1Hsa_uUy1BQp1nhDXwBVZiGf1LzRgwnvRKhbPcphK-to/export?exportFormat=csv" }}
     {{$final_listings := newScratch}}
 
     {{range after 1 $listings}}
