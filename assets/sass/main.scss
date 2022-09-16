@@ -33,6 +33,7 @@ a {
     color: darken($primary-color, 5%);
     text-decoration: underline;
     font-weight: bold;
+    padding: 2px;
   }
 }
 
@@ -47,8 +48,12 @@ body {
     margin: 0 auto;
 
     .bio {
-      margin: 0 auto;
-      max-width: 800px;
+      margin: 0 auto 1rem;
+      max-width: 80%;
+
+      @include breakpoint(700px) {
+        max-width: 60%;
+      }
     }
   }
 }
@@ -116,7 +121,7 @@ body {
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 
   .icon {
     height: 20px;
