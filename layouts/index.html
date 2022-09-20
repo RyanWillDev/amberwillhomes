@@ -91,20 +91,19 @@
             <a href="{{$external_link}}">
             {{$img := resources.GetRemote $image_url}}
             {{$img := $img.Resize "500x q60"}}
+            <h3>{{$price}}</h3>
             <img src="{{$img.RelPermalink}}" alt="Property Image">
             <div class="listing-info">
+              <p>{{$address}}</p>
               <ul>
-                <li>{{$address}}</li>
-                <li>{{$price}}</li>
+                {{if eq $type "residential"}}
+                <li>{{$room_count}} bedrooms</li>
+                <li>{{$bath_count}} bath</li>
+                {{end}}
                 {{if ne $type "land"}}
                   <li>{{$sqft}} sqft</li>
                 {{end}}
                 <li>{{$acerage}} acres</li>
-
-                {{if eq $type "residential"}}
-                <li>{{$room_count}} bedrooms</li>
-                <li>{{$bath_count}} baths</li>
-                {{end}}
               </ul>
             </div>
            </a>
@@ -146,15 +145,14 @@
             <div class="listing-info">
               <p>{{$address}}</p>
               <ul>
-                {{if ne $type "land"}}
-                  <li>{{$sqft}} sqft</li>
-                {{end}}
-                <li>{{$acerage}} acres</li>
-
                 {{if eq $type "residential"}}
                 <li>{{$room_count}} bedrooms</li>
                 <li>{{$bath_count}} bath</li>
                 {{end}}
+                {{if ne $type "land"}}
+                  <li>{{$sqft}} sqft</li>
+                {{end}}
+                <li>{{$acerage}} acres</li>
               </ul>
               <ul class="listing-agent-info">
                 <li>Listing courtesy of {{$listing_agent_name}}</li>
