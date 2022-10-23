@@ -45,14 +45,14 @@ body {
 
   main {
     max-width: 1600px;
-    margin: 0 auto;
+    margin: 0 auto 2rem;
 
     .bio {
       margin: 0 auto 1rem;
       max-width: 80%;
 
       @include breakpoint(700px) {
-        max-width: 60%;
+        margin-bottom: 3rem;
       }
     }
   }
@@ -104,6 +104,7 @@ body {
     bottom: -250px;
   }
 
+
   &-image {
     border: solid 3px $primary-color;
     height: 150px;
@@ -120,8 +121,7 @@ body {
 .icons {
   display: flex;
   flex-wrap: nowrap;
-  justify-content: center;
-  margin-bottom: 1rem;
+  justify-content: space-evenly;
 
   .icon {
     height: 20px;
@@ -136,6 +136,7 @@ body {
 
     a,
     svg {
+      fill: $primary-color;
       height: inherit;
       width: inherit;
 
@@ -149,6 +150,15 @@ body {
     }
   }
 }
+.agency-info {
+  font-size: .75rem;
+  text-align: center;
+  margin-bottom: 1rem;
+
+  @include breakpoint(700px) {
+    margin-bottom: 2rem;
+  }
+}
 
 .properties {
   margin: 0 10% 5rem;
@@ -157,6 +167,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+
     @include breakpoint(1080px) {
       justify-content: space-evenly;
     }
