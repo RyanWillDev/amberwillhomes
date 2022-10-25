@@ -66,7 +66,8 @@
     CSV is in the following order:
     1. personal
     2. type
-    3. address
+    3. street address
+    4. city/state/zip
     4. image_url
     5. sqft
     6. acerage
@@ -90,16 +91,16 @@
     {{if $final_listings.Get "my_listings"}}
       <ul class="listings">
         {{range ($final_listings.Get "my_listings") }}
-          {{$personal := index . 0}}
           {{$type := index . 1}}
-          {{$address := index . 2}}
-          {{$image_url := index . 3}}
-          {{$external_link := index . 4}}
-          {{$sqft := index . 5}}
-          {{$acerage := index . 6}}
-          {{$price := index . 7}}
-          {{$room_count := index . 8}}
-          {{$bath_count := index . 9}}
+          {{$street := index . 2}}
+          {{$address := index . 3}}
+          {{$image_url := index . 4}}
+          {{$external_link := index . 5}}
+          {{$price := index . 6}}
+          {{$room_count := index . 7}}
+          {{$bath_count := index . 8}}
+          {{$acerage := index . 9}}
+          {{$sqft := index . 10}}
           <li class="listing">
             <a href="{{$external_link}}">
             {{$img := resources.GetRemote $image_url}}
@@ -107,7 +108,10 @@
             <h3>{{$price}}</h3>
             <img src="{{$img.RelPermalink}}" alt="Property Image">
             <div class="listing-info">
-              <p>{{$address}}</p>
+              <ul>
+                <li>{{$street}}</li>
+                <li>{{$address}}</li>
+              </ul>
               <ul>
                 {{if eq $type "residential"}}
                 <li>{{$room_count}} bedrooms</li>
@@ -138,17 +142,18 @@
       <ul class="listings">
         {{range ($final_listings.Get "lee_realty_listings") }}
           {{$type := index . 1}}
-          {{$address := index . 2}}
-          {{$image_url := index . 3}}
-          {{$external_link := index . 4}}
-          {{$price := index . 5}}
-          {{$room_count := index . 6}}
-          {{$bath_count := index . 7}}
-          {{$acerage := index . 8}}
-          {{$sqft := index . 9}}
-          {{$listing_agent_name := index . 10}}
-          {{$listing_agent_broker := index . 11}}
-          {{$listing_agent_phone := index . 12}}
+          {{$street := index . 2}}
+          {{$address := index . 3}}
+          {{$image_url := index . 4}}
+          {{$external_link := index . 5}}
+          {{$price := index . 6}}
+          {{$room_count := index . 7}}
+          {{$bath_count := index . 8}}
+          {{$acerage := index . 9}}
+          {{$sqft := index . 10}}
+          {{$listing_agent_name := index . 11}}
+          {{$listing_agent_broker := index . 12}}
+          {{$listing_agent_phone := index . 13}}
           <li class="listing">
             <a href="{{$external_link}}">
             {{$img := resources.GetRemote $image_url}}
@@ -156,7 +161,10 @@
             <h3>{{$price}}</h3>
             <img src="{{$img.RelPermalink}}" alt="Property Image">
             <div class="listing-info">
-              <p>{{$address}}</p>
+              <ul>
+                <li>{{$street}}</li>
+                <li>{{$address}}</li>
+              </ul>
               <ul>
                 {{if eq $type "residential"}}
                 <li>{{$room_count}} bedrooms</li>
