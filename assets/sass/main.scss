@@ -250,17 +250,19 @@ body {
     }
 
     img {
+      height: 150px;
       margin-right: 8px;
+      width: 150px;
     }
 
     .info {
       display: flex;
       flex-wrap: wrap;
-      font-size: 0.65rem;
-      margin-top: 24px;
+      font-size: 0.75rem;
+      margin-top: 64px;
 
       @include breakpoint(700px) {
-        font-size: 0.75rem;
+        font-size: 0.95rem;
       }
 
       span {
