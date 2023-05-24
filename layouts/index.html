@@ -150,6 +150,7 @@
           {{$listing_agent_name := index . 11}}
           {{$listing_agent_broker := index . 12}}
           {{$listing_agent_phone := index . 13}}
+          {{ warnf $street }}
           <li class="listing">
             <a href="{{$external_link}}">
             {{$img := resources.GetRemote $image_url}}
