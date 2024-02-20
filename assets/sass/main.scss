@@ -52,7 +52,7 @@ body {
       max-width: 80%;
 
       @include breakpoint(700px) {
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
       }
     }
   }
@@ -110,6 +110,7 @@ body {
     border: solid 3px $primary-color;
     border-radius: 50%;
     height: 150px;
+    margin-bottom: 1rem;
     width: 150px;
 
     @include breakpoint(700px) {
@@ -180,6 +181,7 @@ body {
     @include breakpoint(1080px) {
       justify-content: space-evenly;
     }
+
     .listing {
       border-radius: 10%;
       box-shadow: 0 4px 6px 0 hsla(300, 75, 87, 0.3),
