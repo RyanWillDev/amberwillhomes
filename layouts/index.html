@@ -64,7 +64,13 @@
     I've personally been on both sides of real estate transactions, buying and selling my own properties.
     I know what to expect and will provide exceptional attention to detail and transparency through the entire process!
     </p>
+
+    <section class="iframe">
+      <p>Use the Realtracs&reg; search below to find listings in your area.</p>
+      <iframe src="https://www.realtracs.com/listings/search;searchOpen=true?propertyClasses=Residential&propertySubTypes=SINGL;ZERO;MODUL;MANUF;MOBIL;HPR-A;HPR-D" frameborder="0"></iframe>
+    </section>
     </div>
+    {{/* 
   <!-- Listings
     CSV is in the following order:
     1. personal
@@ -77,7 +83,6 @@
     7. price
     8. room_count
     9. bath_count
-  -->
   <section class="properties">
     <h2>My Listings</h2>
     {{$listings := getCSV "," "https://docs.google.com/spreadsheets/d/1Hsa_uUy1BQp1nhDXwBVZiGf1LzRgwnvRKhbPcphK-to/export?exportFormat=csv" }}
@@ -193,8 +198,11 @@
       <h1>no listings</h1>
     {{end}}
   </section>
-
+  -->
+*/}}
   <section class="footer">
+    {{/* 
+    <!--
     <div class="lee-realty">
       {{ $lee_realty_logo := resources.Get "images/lee-realty-logo.png" }}
       {{ $lee_realty_logo := $lee_realty_logo.Resize "150x" }}
@@ -205,6 +213,8 @@
         <span>Dickson, TN 37055 <span>
       </div>
     </div>
+    -->
+*/}}
     <div class="junk">
       <p class="disclaimer">Information deemed reliable but not guaranteed.</p>
       <p class="disclaimer">Buyers should independently verify all information
