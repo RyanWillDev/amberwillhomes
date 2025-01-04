@@ -50,7 +50,19 @@
     <div class="agency-info">
       <h2>Amber Will</h2>
       <h3>Realtor&reg;</h3>
+    <div class="footer">
+      <div class="lee-realty">
+        {{ $realty_logo := resources.Get "images/benchmark-realty-logo.jpg" }}
+        {{ $realty_logo := $realty_logo.Resize "150x75" }}
+        <img src="{{$realty_logo.RelPermalink}}" alt="Logo for Benchmark Realty">
+        <div class="info">
+          <span><a href="tel:615-446-2006">615.510.3006</a><span>
+          <span>7618 Hwy 70 S Suite 102<span>
+          <span>Nashville, TN 37221<span>
+        </div>
+      </div>
     </div>
+  </div>
 
     <p class="bio"> 
     Newer to the real estate industry but no stranger to customer service, I've spent the last 16 years dedicated to making other's needs my priority.
@@ -67,7 +79,7 @@
 
     <section class="iframe">
       <p>Use the Realtracs&reg; search below to find listings in your area.</p>
-      <iframe src="https://www.realtracs.com/listings/search;searchOpen=true?propertyClasses=Residential&propertySubTypes=SINGL;ZERO;MODUL;MANUF;MOBIL;HPR-A;HPR-D" frameborder="0"></iframe>
+      <iframe src="https://www.realtracs.com/listings/search;searchOpen=true" frameborder="0"></iframe>
     </section>
     </div>
     {{/* 
@@ -201,16 +213,6 @@
 */}}
   </section>
   <section class="footer">
-    <div class="lee-realty">
-      {{ $realty_logo := resources.Get "images/benchmark-realty-logo.jpg" }}
-      {{ $realty_logo := $realty_logo.Resize "150x75" }}
-      <img src="{{$realty_logo.RelPermalink}}" alt="Logo for Benchmark Realty">
-      <div class="info">
-        <span><a href="tel:615-446-2006">615.510.3006</a><span>
-        <span>7618 Hwy 70 S Suite 102<span>
-        <span>Nashville, TN 37221<span>
-      </div>
-    </div>
     <div class="junk">
       <p class="disclaimer">Information deemed reliable but not guaranteed.</p>
       <p class="disclaimer">Buyers should independently verify all information
