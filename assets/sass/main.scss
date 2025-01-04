@@ -170,6 +170,30 @@ body {
   }
 }
 
+.iframe {
+  display: none;
+  max-width: 80%;
+
+  @include breakpoint(800px) {
+    display: block;
+    margin: 0 auto 2rem auto;
+  }
+
+  p {
+    display: none;
+
+    @include breakpoint(800px) {
+      display: block;
+    }
+
+  }
+
+  iframe {
+    height: 800px;
+    width: 100%;
+  }
+}
+
 .properties {
   margin: 0 10% 5rem;
 
