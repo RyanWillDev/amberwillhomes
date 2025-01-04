@@ -261,7 +261,7 @@ body {
     }
 
     img {
-      height: 150px;
+      height: 75px;
       margin-right: 8px;
       width: 150px;
     }
@@ -270,7 +270,7 @@ body {
       display: flex;
       flex-wrap: wrap;
       font-size: 0.75rem;
-      margin-top: 64px;
+      padding-top: 8px;
 
       @include breakpoint(700px) {
         font-size: 0.95rem;
